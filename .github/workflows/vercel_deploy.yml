@@ -15,5 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Kaggle CLI
         run: pip install kaggle
-      - name: Checking current directory
-        run: ls
+      - name: Get dog breeds classification model
+        run: kaggle kernels output nguyenbnguyen/dog-breed-classification-mobilenet -p ./ml_models/dog-breeds
+      - name: List all
+        run: ls ml_models -R
