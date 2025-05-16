@@ -2,6 +2,8 @@ name: Vercel Production Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+  KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
 on:
   push:
     branches:
@@ -13,9 +15,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Kaggle CLI
         run: pip install kaggle
-      - name: Create kaggle.json
-        run: touch ~/.config/kaggle/kaggle.json; chmod 600 ~/.config/kaggle/kaggle.json
-      - name: Get kaggle.json from secrets
-        run: cat ${{ secrets.KAGGLE_JSON }} > ~/.config/kaggle/kaggle.json
       - name: Check if Kaggle CLI installed or not
         run: kaggle kernels
