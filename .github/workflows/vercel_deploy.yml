@@ -16,9 +16,11 @@ jobs:
       - name: Install Kaggle CLI
         run: pip install kaggle
       - name: Get dog breeds classification model
-        run: kaggle kernels output nguyenbnguyen/dog-breed-classification-mobilenet -p ./ml_models/dog-breeds
+        run: kaggle kernels output nguyenbnguyen/dog-breed-classification-mobilenet -p ./ml_models/classification/dog-breed
       - name: Remove log files
-        run: find . -name '*.log'
+        run: find . -name '*.log' -delete
+      - name: Remove csv files
+        run: find . -name '*.csv' -delete
       - name: List all
         run: ls ml_models -R
       - name: Install Vercel CLI
