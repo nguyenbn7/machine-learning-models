@@ -21,8 +21,12 @@ jobs:
         run: find . -name '*.log' -delete
       - name: Remove csv files
         run: find . -name '*.csv' -delete
-      - name: List all
+      - name: List ml_models folder
         run: ls ml_models -R
+      - name: Collect static files
+        run: |
+          pip install Django
+          python manage.py collectstatic --no-input
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Deploy Project Artifacts to Vercel
