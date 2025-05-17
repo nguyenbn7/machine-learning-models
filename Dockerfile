@@ -29,7 +29,7 @@ ENV PYTHONUNBUFFERED=1
 # Install pip requirements
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
-RUN python -m pip install tensorflow==2.15.1
+RUN python -m pip install tensorflow==2.16.2
 RUN python -m pip install gunicorn
 
 WORKDIR /app
