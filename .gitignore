@@ -176,3 +176,4 @@ cython_debug/
 staticfiles
 
 ml_models
+.vercel
