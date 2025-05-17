@@ -1,4 +1,4 @@
-FROM python:3-slim as download_model
+FROM python:3.12-slim as download_model
 
 RUN python -m pip install kaggle
 
@@ -16,7 +16,7 @@ RUN chmod +x ./download_model.sh
 RUN ./download_model.sh
 
 # For more information, please refer to https://aka.ms/vscode-docker-python
-FROM python:3-slim
+FROM python:3.12-slim
 
 EXPOSE 8000
 
@@ -28,7 +28,8 @@ ENV PYTHONUNBUFFERED=1
 
 # Install pip requirements
 COPY requirements.txt .
-RUN python -m pip install -r requirements.txt --upgrade
+RUN python -m pip install -r requirements.txt
+RUN python -m pip install tensorflow==2.15.1
 RUN python -m pip install gunicorn
 
 WORKDIR /app
