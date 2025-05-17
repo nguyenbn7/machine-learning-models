@@ -25,8 +25,3 @@
 **/values.dev.yaml
 LICENSE
 README.md
-**/vercel.json
-**/.vercelignore
-**/.github
-**/.vercel
-**/venv
