@@ -17,5 +17,11 @@ jobs:
         run: pip install kaggle
       - name: Get dog breeds classification model
         run: kaggle kernels output nguyenbnguyen/dog-breed-classification-mobilenet -p ./ml_models/dog-breeds
+      - name: Remove log files
+        run: find . -name '*.log'
       - name: List all
         run: ls ml_models -R
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}

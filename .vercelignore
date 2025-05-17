@@ -1,0 +1,5 @@
+*.http
+README.md
+LICENSE
+.dockerignore
+Dockerfile
