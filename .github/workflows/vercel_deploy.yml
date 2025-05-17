@@ -25,7 +25,7 @@ jobs:
         run: ls ml_models -R
       - name: Collect static files
         run: |
-          pip install Django whitenoise
+          pip install -r requirements.txt
           python manage.py collectstatic --no-input
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
