@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 if os.getenv("VERCEL_ENV") == "production":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.vercel_prod_setting")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.vercel_prod_settings")
 else:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
